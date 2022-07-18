@@ -1,0 +1,191 @@
+
+"""
+Created on Mon Jun 13 19:06:42 2022
+
+@author: amit.tomar
+"""
+
+import re, os, glob
+import pandas as pd
+import warnings
+import numpy as np
+import csv
+import codecs
+import shutil
+
+
+#root_path = os.getcwd()
+#root_path
+
+root_path ='C:/Users/amit.tomar/OneDrive - Interpublic/Desktop/Edits/Daily/New folder/New folder/'
+
+filenames = glob.glob(os.path.join(root_path + "//*.csv"))
+
+column_names = ['Ad ID',
+'Date',
+'Ad name',
+'Ad entity status',
+'Pin clicks',
+'Saves',
+'Conversions',
+'Video views',
+'Total video played at 25%',
+'Total video played at 50%',
+'Total video played at 75%',
+'Total video played at 95%',
+'Total video played at 100%',
+'Total video starts',
+'Earned impressions',
+'Earned Pin clicks',
+'Earned saves',
+'Earned video views',
+'Earned video played at 25%',
+'Earned video played at 50%',
+'Earned video played at 75%',
+'Earned video played at 95%',
+'Earned video played at 100%',
+'Earned video starts',
+'Earned average video play time',
+'Click-through conversions (Custom)',
+'Click-through value (Custom)',
+'Engagement conversions (Custom)',
+'Engagement value (Custom)',
+'View-through conversions (Custom)',
+'View-through value (Custom)',
+'Campaign entity status',
+'Ad group entity status',
+'Ad review status',
+'Ad rejection reason',
+'Campaign ID',
+'Campaign name',
+'Ad group name',
+'Ad group',
+'Organic pin ID',
+'Pin description',
+'Destination URL',
+'Ad format',
+'Video length',
+'Spend in account currency',
+'Result',
+'Cost per result',
+'Reach',
+'Frequency',
+'Impressions',
+'CPM',
+'Campaign Objective',
+'Gross impressions',
+'Gross Pin clicks',
+'Engagements',
+'Paid impressions',
+'Paid engagements',
+'Engagement rate',
+'Paid Pin clicks',
+'Paid CTR',
+'Paid saves',
+'Paid outbound clicks',
+'Paid save rate',
+'Paid video views',
+'3-Second Video Views',
+'Paid video played at 25%',
+'Paid video played at 50%',
+'Paid video played at 75%',
+'Paid video played at 95%',
+'Paid video played at 100%',
+'Paid video starts',
+'Paid average video play time',
+'CPA (Category view)',
+'ROAS (Category view)',
+'Conversions (Category view)',
+'Value (Category view)',
+'Click-through conversions (Category view)',
+'Click-through value (Category view)',
+'Engagement conversions (Category view)',
+'Engagement value (Category view)',
+'View-through conversions (Category view)',
+'View-through value (Category view)',
+'CPA (Checkout)',
+'ROAS (Checkout)',
+'Conversions (Checkout)',
+'Order value (Checkout)',
+'Click-through conversions (Checkout)',
+'Click-through order value (Checkout)',
+'Engagement conversions (Checkout)',
+'Engagement order value (Checkout)',
+'View-through conversions (Checkout)',
+'View-through order value (Checkout)',
+'CPA (Page visit)',
+'ROAS (Page visit)',
+'Conversions (Page visit)',
+'Value (Page visit)',
+'Click-through conversions (Page visit)',
+'Click-through value (Page visit)',
+'Engagement conversions (Page visit)',
+'Engagement value (Page visit)',
+'View-through conversions (Page visit)',
+'View-through value (Page visit)',
+'CPA (Signup)',
+'ROAS (Signup)',
+'Conversions (Signup)',
+'Value (Signup)',
+'Click-through conversions (Signup)',
+'Click-through value (Signup)',
+'Engagement conversions (Signup)',
+'Engagement value (Signup)',
+'View-through conversions (Signup)',
+'View-through value (Signup)',
+'CPA (Lead)',
+'ROAS (Lead)',
+'Conversions (Lead)',
+'Value (Lead)',
+'Click-through conversions (Lead)',
+'Click-through value (Lead)',
+'Engagement conversions (Lead)',
+'Engagement value (Lead)',
+'View-through conversions (Lead)',
+'View-through value (Lead)',
+'CPA (Add to cart)',
+'ROAS (Add to cart)',
+'Conversions (Add to cart)',
+'Value (Add to cart)',
+'Click-through conversions (Add to cart)',
+'Click-through value (Add to cart)',
+'Engagement conversions (Add to cart)',
+'Engagement value (Add to cart)',
+'View-through conversions (Add to cart)',
+'View-through value (Add to cart)',
+'CPA (Website search)',
+'ROAS (Website search)',
+'Conversions (Website search)',
+'Value (Website search)',
+'Click-through conversions (Website search)',
+'Click-through value (Website search)',
+'Engagement conversions (Website search)',
+'Engagement value (Website search)',
+'View-through conversions (Website search)',
+'View-through value (Website search)',
+'CPA (Watch video)',
+'ROAS (Watch video)',
+'Conversions (Watch video)',
+'Value (Watch video)',
+'Click-through conversions (Watch video)',
+'Click-through value (Watch video)',
+'Engagement conversions (Watch video)',
+'Engagement value (Watch video)',
+'View-through conversions (Watch video)',
+'View-through value (Watch video)'
+]
+
+
+
+
+for i in range(0, len(filenames)):
+
+    df1 = pd.read_csv(filenames[i])
+  
+    df1 = df1.reindex(columns=column_names)
+   
+    df1.to_csv(filenames[i], index=False)
+    
+    
+    
+ 
